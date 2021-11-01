@@ -1,9 +1,7 @@
 package StudentBase;
-
-// version: 1.1
-// made by Pavel Rudzko
-// 07-march-2021
-
+/** A program call "StudentBase"
+        * @ author Pavel Rudzko
+        */
 
 
 
@@ -13,10 +11,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-
-
-
-public class InOut{
+public class InOut {
 
     private static StudentService studentService;
 
@@ -28,7 +23,7 @@ public class InOut{
             System.out.println("2 - Print all students;");
             System.out.println("3 - Print students of faculty;");
             System.out.println("4 - Print student of group");
-            System.out.println("5 - Print students Faculty and Course" );
+            System.out.println("5 - Print students Faculty and Course");
             System.out.println("6 - Print student younger then.....");
 
             System.out.println("0 - Exit");
@@ -64,7 +59,7 @@ public class InOut{
                 case 0 -> isExit = true;
             }
         }
-        while(!isExit);
+        while (!isExit);
     }
 
     private static void createStudentCommand() {
@@ -74,7 +69,6 @@ public class InOut{
 
 
         scanner.nextLine();
-
 
 
         System.out.println("Enter surname:");
@@ -89,8 +83,8 @@ public class InOut{
         System.out.println("Enter dataBirthday 'dd/mm/yyyy':");
         LocalDate dataBirthday = LocalDate.parse(scanner.nextLine(),
                 DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-                        //DateTimeFormatter.ofPattern("dd/MM/yyyy"
-                        System.out.println("Enter address:");
+        //DateTimeFormatter.ofPattern("dd/MM/yyyy"
+        System.out.println("Enter address:");
         String address = scanner.nextLine();
 
         System.out.println("Enter faculty:");
@@ -98,7 +92,6 @@ public class InOut{
 
         System.out.println("Enter course:");
         int course = scanner.nextInt();
-
 
 
         System.out.println("Enter numGroup:");
@@ -109,7 +102,7 @@ public class InOut{
     private static void getFacultyCommand() {
         System.out.println("ВВедите факультет");
         Scanner scanner = new Scanner(System.in);
-        String  facultyName = scanner.nextLine();
+        String facultyName = scanner.nextLine();
         printList(studentService.getFaculty(facultyName));
     }
 
@@ -130,22 +123,21 @@ public class InOut{
         Scanner scanner1 = new Scanner(System.in);
         int course = scanner1.nextInt();
 
-        printList(studentService.getFacultyCourse(facultyName,course) );
+        printList(studentService.getFacultyCourse(facultyName, course));
     }
 
 
-    private static void getLowAgeCommand(){
+    private static void getLowAgeCommand() {
         System.out.println("Введите год в формате год.месяц.день");
         Scanner scanner = new Scanner(System.in);
         String age = scanner.nextLine();
-        LocalDate  dataBirthday = LocalDate.parse(age);
+        LocalDate dataBirthday = LocalDate.parse(age);
 
         printList(studentService.getLowAge(dataBirthday));
     }
 
 
-    private static void printList(ArrayList<Student> list)
-    {
+    private static void printList(ArrayList<Student> list) {
         for (Student student : list) {
             System.out.println(student.toString());
         }

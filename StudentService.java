@@ -38,18 +38,18 @@ import java.util.ArrayList;
 
      public void addStudent(Student student)
      {
-         this.studentList.add(student);
+         studentList.add(student);
      }
 
      public ArrayList<Student> all()
      {
-         return this.studentList;
+         return studentList;
      }
 
      public ArrayList<Student> getFaculty(String facultyName)
      {
          ArrayList<Student> result = new ArrayList<>();
-         for (Student student : this.studentList)
+         for (Student student : studentList)
          {
              if (student.getFaculty().equals(facultyName))
              {
@@ -66,7 +66,7 @@ import java.util.ArrayList;
      public ArrayList<Student> getNumGroup(int numGroup )
      {
          ArrayList<Student> result = new ArrayList<>();
-         for (Student student : this.studentList)
+         for (Student student : studentList)
          {
              if (student.getNumGroup() == numGroup)
              {
