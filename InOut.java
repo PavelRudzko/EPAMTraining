@@ -1,8 +1,9 @@
 package StudentBase;
-/** A program call "StudentBase"
-        * @ author Pavel Rudzko
-        */
-
+/**
+ * A program call "StudentBase"
+ *
+ * @ author Pavel Rudzko
+ */
 
 
 import java.time.LocalDate;
